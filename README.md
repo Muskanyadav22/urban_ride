@@ -1,4 +1,4 @@
-# 🚕 Uber Clone - Full Stack Ride-Sharing Application
+# 🚕 Urban Ride - Full Stack Ride-Sharing Application
 
 A complete, production-ready ride-sharing platform built with **Node.js**, **Express**, **React**, **PostgreSQL**, and **Socket.io** for real-time updates.
 
