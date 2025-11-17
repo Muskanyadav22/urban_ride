@@ -21,15 +21,18 @@ const pool = new Pool({
   port: process.env.DB_PORT || 5432,
 });
 
-pool.connect((err, client, release) => {
-  if (err) {
-    console.error('Error acquiring client', err.message);
-    console.error('Make sure your database is running and credentials are correct');
-  } else {
-    console.log('Database connected successfully');
-    release();
-  }
-});
+// Avoid attempting a live DB connection during tests to prevent Jest open-handle issues
+if (process.env.NODE_ENV !== 'test') {
+  pool.connect((err, client, release) => {
+    if (err) {
+      console.error('Error acquiring client', err.message);
+      console.error('Make sure your database is running and credentials are correct');
+    } else {
+      console.log('Database connected successfully');
+      release();
+    }
+  });
+}
 
 pool.on('error', (err) => {
   console.error('Unexpected error on idle client', err);

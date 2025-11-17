@@ -1,0 +1,318 @@
+.driver-offer-screen {
+  padding: 20px;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.offer-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 100%;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.offer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.offer-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.1s linear;
+}
+
+.timer-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.offer-details {
+  margin: 20px 0;
+}
+
+.location-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.location-item {
+  background: #f9f9f9;
+  padding: 12px;
+  border-left: 4px solid #667eea;
+  border-radius: 8px;
+}
+
+.location-item .label {
+  display: block;
+  font-weight: 600;
+  color: #667eea;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.location-item p {
+  margin: 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.offer-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  flex: 1;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-accept {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-accept:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-accept:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-reject {
+  background: #f5f5f5;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.btn-reject:hover {
+  background: #fff3f3;
+  border-color: #e74c3c;
+  color: #e74c3c;
+}
+
+.progress-bar {
+  height: 4px;
+  background: #f0f0f0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  transition: width 1s linear;
+}
+
+.no-offer {
+  text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+}
+
+.waiting-animation {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  height: 40px;
+  align-items: center;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #667eea;
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+.dot-1 {
+  animation-delay: -0.32s;
+}
+
+.dot-2 {
+  animation-delay: -0.16s;
+}
+
+.dot-3 {
+  animation-delay: 0s;
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+}
+
+.no-offer h3 {
+  color: #333;
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+}
+
+.no-offer p {
+  color: #999;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.offer-history {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.offer-history h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: #f9f9f9;
+  border-left: 4px solid #ddd;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.history-item.status-accepted {
+  border-left-color: #27ae60;
+  background: #f0fff4;
+}
+
+.history-item.status-rejected {
+  border-left-color: #e74c3c;
+  background: #fff5f5;
+}
+
+.history-time {
+  font-size: 0.85rem;
+  color: #999;
+  min-width: 70px;
+}
+
+.history-location {
+  flex: 1;
+  color: #333;
+  margin: 0 15px;
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-status {
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.history-status.status-accepted {
+  color: #27ae60;
+  background: #d4edda;
+}
+
+.history-status.status-rejected {
+  color: #e74c3c;
+  background: #f8d7da;
+}
+
+@media (max-width: 600px) {
+  .driver-offer-screen {
+    padding: 10px;
+  }
+
+  .offer-card,
+  .no-offer,
+  .offer-history {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 14px;
+  }
+}

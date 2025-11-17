@@ -21,7 +21,7 @@ export default function DriverLogin() {
       const res = await API.post("/drivers/login", form);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("role", "driver");
-      navigate("/driver-dashboard");
+      navigate("/driver");
     } catch (err) {
       setError(err.response?.data?.error || "Login failed");
     } finally {

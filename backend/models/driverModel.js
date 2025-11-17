@@ -31,4 +31,24 @@ const updateDriverStatus = async (id, status) => {
   return result.rows[0];
 };
 
-module.exports = { createDriver, findDriverById, findDriverByCarNumber, getAllDrivers, updateDriverStatus };
+const deleteDriver = async (id) => {
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    
+    // Option 1: Set driver_id to NULL for rides (if constraint allows it)
+    await client.query("UPDATE rides SET driver_id = NULL WHERE driver_id = $1", [id]);
+    
+    // Then delete the driver
+    await client.query("DELETE FROM drivers WHERE id = $1", [id]);
+    await client.query('COMMIT');
+  } catch (err) {
+    await client.query('ROLLBACK');
+    throw err;
+  } finally {
+    client.release();
+  }
+  return { message: 'Driver deleted' };
+};
+
+module.exports = { createDriver, findDriverById, findDriverByCarNumber, getAllDrivers, updateDriverStatus, deleteDriver };

@@ -60,8 +60,19 @@ const rejectRide = async (req, res) => {
   }
 };
 
+const getDriverProfile = async (req, res) => {
+  try {
+    const driver_id = req.user.id;
+    const driver = await findDriverById(driver_id);
+    if (!driver) return res.status(404).json({ error: "Driver profile not found" });
+    res.json(driver);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 const logoutDriver = (req, res) => {
   res.json({ message: "Logout successful" });
 };
 
-module.exports = { signupDriver, loginDriver, getDriverRides, acceptRide, rejectRide, logoutDriver };
+module.exports = { signupDriver, loginDriver, getDriverRides, acceptRide, rejectRide, logoutDriver, getDriverProfile };

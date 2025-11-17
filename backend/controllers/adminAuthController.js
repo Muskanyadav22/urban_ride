@@ -23,6 +23,7 @@ const adminLogin = async (req, res) => {
       admin: { id: admin.id, username: admin.username }
     });
   } catch (error) {
+    console.error('adminLogin error:', error);
     res.status(500).json({ error: error.message });
   }
 };

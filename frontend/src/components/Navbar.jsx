@@ -28,6 +28,7 @@ export default function Navbar() {
             {role === "admin" && <Link to="/admin">Admin Dashboard</Link>}
             {role === "driver" && <Link to="/driver">Driver Dashboard</Link>}
             {role === "user" && <Link to="/rider">Rider Dashboard</Link>}
+            {role === "user" && <Link to="/profile">Profile</Link>}
             <button onClick={handleLogout} className="btn btn-secondary">
               Logout
             </button>

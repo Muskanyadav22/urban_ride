@@ -1,9 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import ErrorBoundary from "./components/ErrorBoundary";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import RiderDashboard from "./pages/RiderDashboard";
+import Profile from "./pages/Profile";
 import DriverDashboard from "./pages/DriverDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import BookRide from "./components/BookRide";
@@ -16,9 +18,10 @@ import AdminLogin from "./pages/AdminLogin";
 
 function App() {
   return (
-    <>
-      <Navbar />
-  <Routes>
+    <ErrorBoundary>
+      <>
+        <Navbar />
+        <Routes>
   <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/login-select" element={<RoleSelect type="login" />} />
@@ -34,6 +37,14 @@ function App() {
               <RiderDashboard />
             </ProtectedRoute>
           } 
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute role="user">
+              <Profile />
+            </ProtectedRoute>
+          }
         />
         
         <Route 
@@ -63,7 +74,8 @@ function App() {
           } 
         />
       </Routes>
-    </>
+      </>
+    </ErrorBoundary>
   );
 }
 

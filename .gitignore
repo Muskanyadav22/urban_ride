@@ -1,2 +1,4 @@
-backend/.env
-backend/.env
+node_modules/
+.env
+.env.local
+.env.*   # (Optional: if you have multiple env files)

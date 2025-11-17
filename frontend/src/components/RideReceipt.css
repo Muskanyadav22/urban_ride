@@ -1,0 +1,389 @@
+.receipt-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.receipt-container {
+  background: white;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-close-x {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #f5f5f5;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.btn-close-x:hover {
+  background: #e0e0e0;
+  transform: rotate(90deg);
+}
+
+.receipt-header {
+  text-align: center;
+  padding: 30px 20px 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.receipt-header h1 {
+  margin: 0;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+.receipt-number {
+  margin: 8px 0 0;
+  color: #999;
+  font-size: 0.95rem;
+}
+
+.receipt-content {
+  padding: 20px;
+}
+
+.receipt-section {
+  margin-bottom: 20px;
+}
+
+.location-section {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.location-row {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.location-row:last-child {
+  margin-bottom: 0;
+}
+
+.location-icon {
+  font-size: 1.5rem;
+  min-width: 30px;
+}
+
+.location-details {
+  flex: 1;
+}
+
+.location-label {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.location-text {
+  margin: 5px 0 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.route-line {
+  height: 2px;
+  background: linear-gradient(90deg, #667eea 0%, #667eea 50%, transparent 100%);
+  margin: 10px 0;
+}
+
+.trip-details {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.95rem;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-row span {
+  color: #666;
+}
+
+.detail-row strong {
+  color: #333;
+}
+
+.fare-section {
+  background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.fare-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.fare-row span:last-child {
+  font-weight: 600;
+  color: #333;
+}
+
+.fare-row.surge-highlight {
+  color: #e74c3c;
+  background: #fff5f5;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.fare-row.surge-highlight span:last-child {
+  color: #e74c3c;
+}
+
+.surge-badge {
+  background: #ffe0e0;
+  color: #e74c3c;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.fare-divider {
+  height: 2px;
+  background: #ddd;
+  margin: 15px 0;
+}
+
+.fare-total {
+  background: white;
+  padding: 15px 12px !important;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  border: 2px solid #667eea;
+  margin-bottom: 12px;
+}
+
+.fare-total span:last-child {
+  color: #667eea;
+  font-size: 1.3rem;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status-badge.status-completed {
+  background: #d4edda;
+  color: #27ae60;
+}
+
+.status-badge.status-pending {
+  background: #fff3cd;
+  color: #f39c12;
+}
+
+.status-badge.status-failed {
+  background: #f8d7da;
+  color: #e74c3c;
+}
+
+.email-status {
+  background: #d4edda;
+  color: #27ae60;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 15px 0;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.receipt-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-top: 2px solid #f0f0f0;
+}
+
+.btn {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-email {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-email:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-email:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-download {
+  background: #f0f0f0;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.btn-download:hover {
+  background: #f9f9f9;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.btn-close-modal {
+  background: #e0e0e0;
+  color: #666;
+}
+
+.btn-close-modal:hover {
+  background: #d0d0d0;
+}
+
+.receipt-footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid #f0f0f0;
+  background: #fafafa;
+  border-radius: 0 0 16px 16px;
+}
+
+.receipt-footer p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.receipt-footer p:first-child {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.small-text {
+  color: #999 !important;
+  font-size: 0.85rem !important;
+}
+
+.loading,
+.error-message {
+  padding: 40px;
+  text-align: center;
+  color: #666;
+  font-size: 1rem;
+}
+
+.error-message {
+  color: #e74c3c;
+}
+
+@media (max-width: 600px) {
+  .receipt-modal {
+    padding: 10px;
+  }
+
+  .receipt-container {
+    max-width: 100%;
+    max-height: 95vh;
+  }
+
+  .receipt-header {
+    padding: 20px 16px 15px;
+  }
+
+  .receipt-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .receipt-content {
+    padding: 15px;
+  }
+
+  .receipt-section {
+    margin-bottom: 15px;
+  }
+
+  .location-section,
+  .fare-section {
+    padding: 15px;
+  }
+
+  .btn {
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+
+  .receipt-actions {
+    padding: 15px;
+    gap: 8px;
+  }
+}
