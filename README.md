@@ -88,8 +88,8 @@ psql --version      # Should show 12+
 ### Step 1: Clone Repository
 
 ```bash
-git clone https://github.com/Muskanyadav22/uber_clone.git
-cd uber_clone
+git clone https://github.com/Muskanyadav22/urban_ride.git
+cd urban_ride
 ```
 
 ### Step 2: Backend Setup
